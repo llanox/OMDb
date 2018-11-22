@@ -5,7 +5,6 @@ import android.widget.FrameLayout
 import androidx.appcompat.app.AppCompatActivity
 import com.gabo.ramo.R
 import com.gabo.ramo.core.BaseView
-import com.gabo.ramo.core.extensions.addFragment
 import com.gabo.ramo.core.extensions.replaceFragment
 import com.gabo.ramo.presentation.moviedetail.MovieDetailFragment
 import com.gabo.ramo.presentation.search.MovieSearchFragment
@@ -27,7 +26,7 @@ class EntryPointActivity : AppCompatActivity(), BaseView.NavigationListener {
     override fun navigateTo(framentId: Int, data: Bundle) {
         when(framentId){
             R.id.fragment_movie_search -> {
-                addFragment(MovieSearchFragment.newInstance(data), R.id.fragment_container)
+                replaceFragment(MovieSearchFragment.newInstance(data), R.id.fragment_container)
             }
             R.id.fragment_movie_detail -> replaceFragment(MovieDetailFragment.newInstance(data), R.id.fragment_container)
             else -> replaceFragment(MovieSearchFragment.newInstance(data), R.id.fragment_container)

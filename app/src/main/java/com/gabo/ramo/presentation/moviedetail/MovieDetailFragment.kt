@@ -44,16 +44,16 @@ class MovieDetailFragment : Fragment(), MovieDetailScreen {
 
     override fun onResume() {
         super.onResume()
-        presenter?.attachView(this)
+        presenter.attachView(this)
         movieId?.let {
-            presenter?.init(it)
+            presenter.init(it)
         }
 
     }
 
     override fun onPause() {
         super.onPause()
-        presenter?.detachView()
+        presenter.detachView()
     }
 
     override fun renderMovieDetail(movie: Movie?) {

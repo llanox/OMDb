@@ -39,18 +39,18 @@ class MovieSearchFragment : Fragment(), MovieSearchView, MovieRecyclerViewAdapte
 
 
     fun onQueryReceived(query: String?) {
-        query?.let { searchPresenter?.findMoviesBy(query.trim()) }
+        query?.let { searchPresenter.findMoviesBy(query.trim()) }
     }
 
     override fun onResume() {
         super.onResume()
-        searchPresenter?.attachView(this)
+        searchPresenter.attachView(this)
 
     }
 
     override fun onPause() {
         super.onPause()
-        searchPresenter?.detachView()
+        searchPresenter.detachView()
     }
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?,
@@ -69,7 +69,7 @@ class MovieSearchFragment : Fragment(), MovieSearchView, MovieRecyclerViewAdapte
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         autocompleteSearch.onChange {
-            it?.let {
+
                 when (it.length) {
                     0 -> {
                         movieAdapter.clearMovies()
@@ -79,7 +79,6 @@ class MovieSearchFragment : Fragment(), MovieSearchView, MovieRecyclerViewAdapte
                     else -> onQueryReceived(it)
 
                 }
-            }
 
         }
     }
