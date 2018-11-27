@@ -4,7 +4,7 @@ import androidx.annotation.NonNull
 
 abstract class BasePresenter<V : BaseView> {
 
-    var view : V? = null
+    protected var view : V? = null
 
     fun attachView(@NonNull view: V) {
         this.view = view

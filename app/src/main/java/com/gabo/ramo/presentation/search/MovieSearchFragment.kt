@@ -28,8 +28,8 @@ class MovieSearchFragment : Fragment(), MovieSearchView, MovieRecyclerViewAdapte
         }
     }
 
-    lateinit var searchPresenter: MovieSearchPresenter
-    lateinit var movieAdapter: MovieRecyclerViewAdapter
+    private lateinit var searchPresenter: MovieSearchPresenter
+    private lateinit var movieAdapter: MovieRecyclerViewAdapter
     private var listener: BaseView.NavigationListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -126,7 +126,7 @@ class MovieSearchFragment : Fragment(), MovieSearchView, MovieRecyclerViewAdapte
         list.visibility = View.VISIBLE
     }
 
-    override fun showModeSearchingResults(resultsSize: Int) {
+    override fun showSearchingResults(resultsSize: Int) {
         Snackbar.make(list, "Search results ($resultsSize)", Snackbar.LENGTH_LONG).show()
     }
 

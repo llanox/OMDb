@@ -27,7 +27,7 @@ class MovieSearchPresenter(context: Context?) : BasePresenter<MovieSearchView>()
             when (listOfMovies) {
                 is Response.Success -> {
                     view?.updateListOfMovies(listOfMovies.data)
-                    view?.showModeSearchingResults(listOfMovies.data.size)
+                    view?.showSearchingResults(listOfMovies.data.size)
                 }
                 is Response.Error -> view?.showErrorFetchingMovies(listOfMovies.errorMsg)
             }
